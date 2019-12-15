@@ -1,7 +1,7 @@
 # quadruped
 A dog-inspired robot.
 
-[some images](/images/readme.md)
+[checkout some images](/images/readme.md)
 
 ### video:
 
