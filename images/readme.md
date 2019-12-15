@@ -1,13 +1,13 @@
 
 - overview 
-![](ControlFlow(2).jpg)
+![](ControlFlow(2).jpg)  
 - kinematic frames  
-![](quadruped_frame_assignment.jpg)
+![](quadruped_frame_assignment.jpg)  
 - CAD  
-![](robot_cad.png)
+![](robot_cad.png)  
 - VREP Simulation  
-![](vrep-5deg_slope.png)
+![](vrep-5deg_slope.png)  
 - Robot-top view  
-![](actualRobot-labeled.jpg)
+![](actualRobot-labeled.jpg)  
 - Robot-isometric  
-![](actualRobotTop-labeled.jpg)
+![](actualRobotTop-labeled.jpg)  
