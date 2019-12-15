@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Content-Type" content="text/html" charset="ISO-8859-1">
+		<title> Dog-Inspired Robot </title>
+		<!-- Style sheet for responsive design -->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			/* style classes for pictures */
+			.fill {object-fit: fill;}
+			.contain {object-fit: contain;}
+			.cover {object-fit: cover;}
+			.scale-down {object-fit: scale-down;}
+			.none {object-fit: none;}
+
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+			#joystick {
+				border: 2px solid #9C9898;
+			}
+		</style>
+		<link rel="stylesheet" href="static/dev/css/jquery-ui.css">
+		<script src="static/dev/css/jquery-3.3.1.min.js"></script>
+		<script src="static/dev/css/jquery-ui.js"></script>
+		<script src="static/dev/js/joy.js"></script>
+		<script>
+		$( function() {
+			$( "#power-slider" ).slider({
+				orientation: "vertical",
+				range: "min",
+				min: 0,
+				max: 100,
+				value: 0,
+				slide: function( event, ui ) {
+					$( "#power" ).val( ui.value );
+				}
+			});
+			$( "#power" ).val( $( "#power-slider" ).slider( "value" ) );
+		} );
+		</script>
+	</head>
+	<body>
+		<div class="w3-container">
+			<p id="entry"></p>
+		</div>
+		<div class="w3-container w3-row">
+			<div class="w3-third">
+				Cursor X:  <input id="cursorX" type="text" /></br>
+				Cursor Y:  <input id="cursorY" type="text" /></br>
+				vel X:   <input id="X" type="text" /></br>
+				vel Y:   <input id="Y" type="text" />
+			</div>
+			<div class="w3-third" id="joyDiv" style="width:200px;height:200px;margin-bottom:20px;">Velocity</div>
+			<!-- we-rest keeps slider on right of joystick on small screens -->
+			<div class="w3-container w3-rest">
+				<!-- Motor power slider -->
+				<p>
+					<label for="power"> Omega </label>
+					<input type="text" name="power" id="power" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				</p>
+				<div id="power-slider" style="height:125px;"></div>
+			</div>
+		</div>
+
+		  <Script>
+
+			// <!-- Create JoyStick object into the DIV 'joyDiv' -->
+
+			var joy = new JoyStick('joyDiv');
+
+			var inputPosX = document.getElementById("cursorX");
+			var inputPosY = document.getElementById("cursorY");
+			var x = document.getElementById("X");
+			var y = document.getElementById("Y");
+			
+
+			// var x = joy.GetPosX()
+			// var y = joy.GetPosY()
+			// var theta =
+			setInterval(function(){ inputPosX.value=joy.GetPosX(); }, 50);
+			setInterval(function(){ inputPosY.value=joy.GetPosY(); }, 50);
+			setInterval(function(){ x.value=joy.GetX(); }, 50);
+			setInterval(function(){ y.value=joy.GetY(); }, 50);
+			// setInterval(function() {sendCoords(x.value,y.value); }, 50);
+
+			window.addEventListener("beforeunload", function (event) {
+				  event.preventDefault();
+				});
+			$(document).ready (function() {
+				$("#ctlButton").click(function () {
+					var entry = document.getElementById('entry');
+					var CtrlKey = document.getElementById('CtrlKey');
+					entry.innerHTML = 'You entered: ' + CtrlKey.value;
+				});
+			});
+			var sCounter = 0; /*-- Temp for testing button change routine */
+			function chgButton()
+			{
+				sCounter = sCounter + 1;
+				ButtonCtl(sCounter);
+				if (sCounter > 3) {
+					sCounter = 0;
+				}
+			}
+			function ButtonCtl(condition) {
+				var statusButton = document.getElementById("ctlButton");
+				switch(condition)
+				{
+					case 1:
+						/* Running - Button color=green, text=Running */
+						statusButton.style.backgroundColor = "green";
+						statusButton.innerHTML = "Running";
+						break;
+					case 2:
+						/* Time running out - Button color=yellow, text=Warning */
+						statusButton.style.color = "w3-yellow";
+						statusButton.innerHTML = "Warning";
+						break;
+					case 3:
+						/* Stop - Button color=red, text=stopped */
+						statusButton.style.color = "w3-red";
+						statusButton.innerHTML = "Stopped";
+						break;
+					default:
+						/* Idle - Button color=blue, text=begin */
+						statusButton.style.color = "w3-blue";
+						statusButton.innerHTML = "Begin";
+						break;
+				}
+			}
+		</script>
+   </body>
+</html>
