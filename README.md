@@ -1,7 +1,10 @@
 # quadruped
 A dog-inspired robot.
 
-###video:
+[some images](/images/readme.md)
+
+### video:
+
 VREP Simulation
 
 [![VREP Simulation](https://img.youtube.com/vi/LbIpLvdWQxI/0.jpg)](https://www.youtube.com/watch?v=LbIpLvdWQxI)
