@@ -8,7 +8,7 @@ Jinja2==2.10
 lxml==4.2.1
 MarkupSafe==1.0
 Pillow==5.1.0
-python-engineio==2.1.1
+python-engineio==3.8.2.post1
 python-socketio==1.9.0
 pytz==2018.4
 qrcode==6.0
