@@ -13,4 +13,4 @@ python-socketio==1.9.0
 pytz==2018.4
 qrcode==6.0
 six==1.11.0
-Werkzeug==0.14.1
+Werkzeug==0.15.5
